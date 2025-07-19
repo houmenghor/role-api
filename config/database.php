@@ -114,7 +114,7 @@ return [
             'database' => env('CLOUDFLARE_D1_DATABASE_ID', '92dbf4a1-82b7-46c2-93ae-6f8058793965'),
             'api' => 'https://api.cloudflare.com/client/v4',
             'auth' => [
-                'token' => env('CLOUDFLARE_TOKEN', 'Hfc1XEet9mtWi3T9_E1ljOZqvdc6wuaDbcN7qX2K'),
+                'token' => env('CLOUDFLARE_TOKEN', '_3R-3DRVzsSnhBskA5hkjZ6Zca5iclkw7QTonamu'),
                 'account_id' => env('CLOUDFLARE_ACCOUNT_ID', '577e46f05185e49e01fad937549ea2a1'),
             ],
         ],
