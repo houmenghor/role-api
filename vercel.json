@@ -22,7 +22,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://ah-toch-store-laravel.vercel.app",
+        "APP_URL": "https://role-api.vercel.app",
         "APP_KEY": "base64:kZhNgF/+Eh4LitTjQqvU7s1q861K3gpbnDvcFfTsBtM=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
@@ -34,8 +34,8 @@
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
         "DB_CONNECTION": "d1",
-        "CLOUDFLARE_D1_DATABASE_ID": "your-database-id",
-        "CLOUDFLARE_TOKEN": "your-cloudflare-token",
-        "CLOUDFLARE_ACCOUNT_ID": "your-account-id"
+        "CLOUDFLARE_D1_DATABASE_ID": "92dbf4a1-82b7-46c2-93ae-6f8058793965",
+        "CLOUDFLARE_TOKEN": "Hfc1XEet9mtWi3T9_E1ljOZqvdc6wuaDbcN7qX2K",
+        "CLOUDFLARE_ACCOUNT_ID": "577e46f05185e49e01fad937549ea2a1"
     }
 }
