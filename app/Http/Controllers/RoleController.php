@@ -9,21 +9,29 @@ class RoleController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:50,unique:roles,name',
+        // $request->validate([
+        //     'name' => 'required|string|max:50,unique:roles,name',
+        //     'status' => 'nullable|boolean|in:1,0',
+        //     'description' => 'nullable|string'
+        // ]);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:50|unique:roles,name', // Corrected unique rule
             'status' => 'nullable|boolean|in:1,0',
             'description' => 'nullable|string'
         ]);
-        $role = new Role();
-        $role->name = $request->input('name');
-        $role->status = $request->input('status');
-        $role->description = $request->input('description');
-        $role->save();
+
+        $role = Role::create($validatedData);
+
+        // $role = new Role();
+        // $role->name = $request->input('name');
+        // $role->status = $request->input('status');
+        // $role->description = $request->input('description');
+        // $role->save();
         return response()->json([
             "result" => true,
             "message" => "Role created successfully!",
             "data" => $role
-        ],201);
+        ], 201);
     }
 
     public function index(Request $request)
@@ -35,22 +43,18 @@ class RoleController extends Controller
         $column = $request->input('column') ?? 'id';
         $sort = $request->input('sort') ?? 'asc';
         $role = new Role();
-        if ($request->filled('search'))
-        {
-            $role = $role->where('id','like','%'.$request->input('search').'%');
+        if ($request->filled('search')) {
+            $role = $role->where('id', 'like', '%' . $request->input('search') . '%');
             // $role = $role->orWhere('name','like','%'.$request->input('search').'%');
         }
-        $role = $role->orderBy($column,$sort)->get();
+        $role = $role->orderBy($column, $sort)->get();
 
         return response()->json([
             "result" => true,
             "message" => "Successfully!",
             "data" => $role
-        ],200);
+        ], 200);
     }
 
-    public function destroy($id)
-    {
-
-    }
+    public function destroy($id) {}
 }
