@@ -8,5 +8,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post("/role",[RoleController::class,'store']);
+Route::post("/role",[RoleController::class,"store"]);
 Route::get("/role",[RoleController::class,"index"]);
+Route::delete("/role/{id}",[RoleController::class,"destroy"]);
+Route::put("/role/{id}",[RoleController::class,"update"]);
