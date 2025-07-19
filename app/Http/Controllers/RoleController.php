@@ -23,7 +23,7 @@ class RoleController extends Controller
             "result" => true,
             "message" => "Role created successfully!",
             "data" => $role
-        ]);
+        ],201);
     }
 
     public function index(Request $request)
@@ -46,7 +46,7 @@ class RoleController extends Controller
             "result" => true,
             "message" => "Successfully!",
             "data" => $role
-        ]);
+        ],200);
     }
 
     public function destroy($id)
