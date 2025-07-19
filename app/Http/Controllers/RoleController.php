@@ -11,7 +11,7 @@ class RoleController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:50,unique:roles,name',
-            'status' => 'required|boolean|in:1,0',
+            'status' => 'nullable|boolean|in:1,0',
             'description' => 'nullable|string'
         ]);
         $role = new Role();
@@ -51,6 +51,6 @@ class RoleController extends Controller
 
     public function destroy($id)
     {
-        
+
     }
 }
