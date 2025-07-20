@@ -37,7 +37,7 @@ class RoleController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-
+            "column" => "nullable|in:roles,id,name",
             "sort" => "nullable|in:desc,asc",
         ]);
         $column = $request->input('column') ?? 'id';
@@ -84,7 +84,7 @@ class RoleController extends Controller
         $request->merge(['id' => $id]);
         $validate = $request->validate([
             'id'          => 'required|integer|min:1|exists:roles,id',
-            'name'        => 'required|string|max:50|unique:roles,name,' . $id,
+            'name'        => 'nullable|string|max:50|unique:roles,name,' . $id,
             'status'      => 'nullable|boolean|in:1,0',
             'description' => 'nullable|string'
         ]);
