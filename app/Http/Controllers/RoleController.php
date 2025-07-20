@@ -45,7 +45,7 @@ class RoleController extends Controller
         $role = new Role();
 
         if ($request->filled('id')) {
-            $role = $role->where('id', 'like', '%' . $request->input('id') . '%');
+            $role = $role->where('id',$request->input('id'));
         }
 
         if ($request->filled('name')) {
