@@ -104,7 +104,7 @@ class AuthController extends Controller
         }
         $otp = rand(100000, 999999);
         Cache::put('opt_sent_' . $user->email,$otp, now()->addMinute(1));
-        Mail::to($user->email)->queue(new ForgetPassword($otp));
+        Mail::to($user->email)->send(new ForgetPassword($otp));
         return response()->json([
             'result' => true,
             'message' => 'OPT sent to your email...'
