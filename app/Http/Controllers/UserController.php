@@ -16,6 +16,6 @@ class UserController extends Controller
             'result' => true,
             'message' => 'Get all user successfully!',
             'data' => UserResource::collection($users)
-        ]);
+        ],200,[],JSON_PRETTY_PRINT);
     }
 }
