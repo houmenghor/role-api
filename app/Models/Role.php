@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    protected $fillable = ['name','status','description'];
+    protected $fillable = ['name'];
     public $timestamps = false;
-    protected $attributes = ['status' => 1];
-    public function getDescriptionAttribute(?string $value): string
+    public function users()
     {
-        // If the value is null, return an empty string; otherwise, return the value as is.
-        return $value ?? '';
+        return $this->hasMany(User::class,'role_id','id');
     }
 }

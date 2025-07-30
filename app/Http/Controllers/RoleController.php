@@ -10,22 +10,11 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:50,unique:roles,name',
-            'status' => 'nullable|boolean|in:1,0',
-            'description' => 'nullable|string'
+            'name' => 'required|string|max:50,unique:roles,name'
         ]);
-        // $validatedData = $request->validate([
-        //     'name' => 'required|string|max:50|unique:roles,name',
-        //     'status' => 'nullable|boolean|in:1, 0',
-        //     'description' => 'nullable|string'
-        // ]);
-
-        // $role = Role::create($validatedData);
 
         $role = new Role();
         $role->name = $request->input('name');
-        $role->status = $request->input('status');
-        $role->description = $request->input('description');
         $role->save();
         return response()->json([
             "result" => true,
@@ -34,26 +23,10 @@ class RoleController extends Controller
         ], 201);
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        $request->validate([
-            "column" => "nullable|in:roles,id,name",
-            "sort" => "nullable|in:desc,asc",
-        ]);
-        $column = $request->input('column') ?? 'id';
-        $sort = $request->input('sort') ?? 'asc';
         $role = new Role();
-
-        if ($request->filled('id')) {
-            $role = $role->where('id',$request->input('id'));
-        }
-
-        if ($request->filled('name')) {
-            $role = $role->where('name', 'like', '%' . $request->input('name') . '%');
-        }
-
-        $role = $role->orderBy($column, $sort)->get();
-
+        $role = $role->orderBy('id', 'asc')->get();
         return response()->json([
             "result" => true,
             "message" => "Successfully!",
@@ -65,7 +38,6 @@ class RoleController extends Controller
     {
         $request->merge(['id' => $id]);
 
-        // use validated when delete if id not found it's not show status 500
         $request->validate([
             'id' => 'required|integer|min:1|exists:roles,id'
         ]);
@@ -85,8 +57,6 @@ class RoleController extends Controller
         $validate = $request->validate([
             'id'          => 'required|integer|min:1|exists:roles,id',
             'name'        => 'nullable|string|max:50|unique:roles,name,' . $id,
-            'status'      => 'nullable|boolean|in:1,0',
-            'description' => 'nullable|string'
         ]);
         $role = new Role();
         $role->where('id',$id)->update($validate);

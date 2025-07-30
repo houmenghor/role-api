@@ -7,9 +7,10 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.0",
-        "laravel/sanctum": "^4.0",
+        "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.9",
-        "ntanduy/cloudflare-d1-database": "^0.2.0"
+        "ntanduy/cloudflare-d1-database": "^0.2.0",
+        "php-open-source-saver/jwt-auth": "^2.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
