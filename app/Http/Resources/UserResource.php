@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class UserResource extends JsonResource
 {
@@ -27,7 +28,7 @@ class UserResource extends JsonResource
                 'gender' => $this->userProfile->gender,
                 'dob' => $this->userProfile->dob,
                 'phone' => $this->userProfile->phone,
-                'photo' => asset('storage/'.$this->userProfile->photo)
+                'photo' => Storage::disk('r2')->url($this->userProfile->photo) // Use the 'r2' disk to get the URL
             ]
         ];
     }
