@@ -6,8 +6,6 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Sanctum\Sanctum;
-use Namshi\JOSE\JWT;
 use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Cache;
@@ -35,16 +33,20 @@ class AuthController extends Controller
         $user->is_active = 1;
         $user->save();
 
-        $photo = 'userProfile/no_profile.jpg';
+        $photoPath = null;
         if ($request->hasFile('photo')) {
-            $photo = $request->file('photo')->store('userProfile', 'public');
+            // Upload the photo and store the path
+            $photoPath = $request->file('photo')->store('userProfile', 'r2');
+        } else {
+            // If no photo is uploaded, use the default path
+            $photoPath = 'userProfile/no_profile.jpg';
         }
 
         $user->userProfile()->create([
             'name' => $request->input('name'),
             'phone' => $request->input('phone'),
             'dob' => $request->input('dob'),
-            'photo' => $photo,
+            'photo' => $photoPath,
             'gender' => $request->input('gender')
         ]);
 
