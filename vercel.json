@@ -1,56 +1,41 @@
 {
-  "version": 2,
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.7.3"
-    }
-  },
-  "routes": [
-    {
-      "src": "/build/(.*)",
-      "dest": "/public/build/$1"
+    "version": 2,
+    "framework": null,
+    "functions": {
+        "api/index.php": { "runtime": "vercel-php@0.7.3" }
     },
-    {
-      "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt))$",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/.*",
-      "dest": "/api/index.php"
+    "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/build/$1"
+        },
+        {
+            "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt))$",
+            "dest": "/public/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ],
+    "outputDirectory": "public",
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "true",
+        "APP_URL": "https://auth-api-laravel-11.vercel.app",
+        "APP_KEY": "base64:kZhNgF/+Eh4LitTjQqvU7s1q861K3gpbnDvcFfTsBtM=",
+        "APP_CONFIG_CACHE": "/tmp/config.php",
+        "APP_EVENTS_CACHE": "/tmp/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "VIEW_COMPILED_PATH": "/tmp",
+        "CACHE_DRIVER": "array",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "cookie",
+        "DB_CONNECTION": "d1",
+        "CLOUDFLARE_D1_DATABASE_ID": "92dbf4a1-82b7-46c2-93ae-6f8058793965",
+        "CLOUDFLARE_TOKEN": "_3R-3DRVzsSnhBskA5hkjZ6Zca5iclkw7QTonamu",
+        "CLOUDFLARE_ACCOUNT_ID": "577e46f05185e49e01fad937549ea2a1"
     }
-  ],
-  "outputDirectory": "public",
-  "env": {
-    "APP_ENV": "production",
-    "APP_DEBUG": "false",
-    "APP_URL": "https://role-api.vercel.app",
-    "APP_KEY": "base64:kZhNgF/+Eh4LitTjQqvU7s1q861K3gpbnDvcFfTsBtM=",
-    "LOG_CHANNEL": "stderr",
-    "CACHE_DRIVER": "array",
-    "SESSION_DRIVER": "cookie",
-    "QUEUE_CONNECTION": "sync",
-
-    "DB_CONNECTION": "d1",
-    "CLOUDFLARE_D1_DATABASE_ID": "92dbf4a1-82b7-46c2-93ae-6f8058793965",
-    "CLOUDFLARE_TOKEN": "_3R-3DRVzsSnhBskA5hkjZ6Zca5iclkw7QTonamu",
-    "CLOUDFLARE_ACCOUNT_ID": "577e46f05185e49e01fad937549ea2a1",
-
-    "FILESYSTEM_DISK": "r2",
-    "CLOUDFLARE_R2_ACCESS_KEY_ID": "8226b39ab2ae35b33acf3c112718f36b",
-    "CLOUDFLARE_R2_SECRET_ACCESS_KEY": "fe3b80399afa1c6cdf158987c3c1f0f9b7b033386e76c76bd80be986e5bd6a41",
-    "CLOUDFLARE_R2_BUCKET": "auth-api-laravel-11",
-    "CLOUDFLARE_R2_ENDPOINT": "https://577e46f05185e49e01fad937549ea2a1.r2.cloudflarestorage.com",
-    "CLOUDFLARE_R2_URL": "https://pub-5cd04f1a16e54be593af48cbbf993989.r2.dev",
-
-    "JWT_SECRET": "zUp6zjlEWrjfpO4a4FzCmdxUTayHjEU0EpSpCWH56vUa6BA28x4bY4avyNNeE91R",
-    "JWT_ALGO": "HS256",
-
-    "MAIL_MAILER": "smtp",
-    "MAIL_HOST": "smtp.gmail.com",
-    "MAIL_PORT": "587",
-    "MAIL_USERNAME": "menghorhou@gmail.com",
-    "MAIL_PASSWORD": "vulqgriarzlgdojz",
-    "MAIL_FROM_ADDRESS": "menghorhou@gmail.com",
-    "MAIL_FROM_NAME": "Menghor"
-  }
 }
