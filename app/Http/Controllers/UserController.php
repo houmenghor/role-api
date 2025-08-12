@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index()
     {
         $users = new User();
-        $users = $users->with(['role','userProfile'])->get();
+        $users = $users->with(['role','userProfile'])->orderBy('id', 'desc')->get();
         return response()->json([
             'result' => true,
             'message' => 'Get all user successfully!',

@@ -26,7 +26,7 @@ class RoleController extends Controller
     public function index()
     {
         $role = new Role();
-        $role = $role->orderBy('id', 'asc')->get();
+        $role = $role->orderBy('id', 'desc')->get();
         return response()->json([
             "result" => true,
             "message" => "Successfully!",
