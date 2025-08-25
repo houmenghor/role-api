@@ -20,7 +20,6 @@ class AuthController extends Controller
             'name' => 'required|string|max:50',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
-            'role_id' => 'nullable|integer|min:1|exists:roles,id',
             'is_active' => 'nullable|boolean|in:1,0',
             'phone' => 'nullable|string|max:15|unique:user_profiles,phone',
             'dob' => 'nullable|date',
@@ -29,7 +28,7 @@ class AuthController extends Controller
         $user = new User();
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
-        $user->role_id = 1;
+        $user->role_id = 2;
         $user->is_active = 1;
         $user->save();
 

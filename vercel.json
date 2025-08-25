@@ -1,41 +1,35 @@
 {
-    "version": 2,
-    "framework": null,
-    "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.7.3" }
+  "version": 2,
+  "functions": {
+    "public/index.php": { "runtime": "vercel-php@0.7.3" }
+  },
+  "routes": [
+    {
+      "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt))$",
+      "dest": "/public/$1"
     },
-    "routes": [
-        {
-            "src": "/build/(.*)",
-            "dest": "/build/$1"
-        },
-        {
-            "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt))$",
-            "dest": "/public/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
-        }
-    ],
-    "outputDirectory": "public",
-    "env": {
-        "APP_ENV": "production",
-        "APP_DEBUG": "true",
-        "APP_URL": "https://auth-api-laravel-11.vercel.app",
-        "APP_KEY": "base64:kZhNgF/+Eh4LitTjQqvU7s1q861K3gpbnDvcFfTsBtM=",
-        "APP_CONFIG_CACHE": "/tmp/config.php",
-        "APP_EVENTS_CACHE": "/tmp/events.php",
-        "APP_PACKAGES_CACHE": "/tmp/packages.php",
-        "APP_ROUTES_CACHE": "/tmp/routes.php",
-        "APP_SERVICES_CACHE": "/tmp/services.php",
-        "VIEW_COMPILED_PATH": "/tmp",
-        "CACHE_DRIVER": "array",
-        "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie",
-        "DB_CONNECTION": "d1",
-        "CLOUDFLARE_D1_DATABASE_ID": "92dbf4a1-82b7-46c2-93ae-6f8058793965",
-        "CLOUDFLARE_TOKEN": "_3R-3DRVzsSnhBskA5hkjZ6Zca5iclkw7QTonamu",
-        "CLOUDFLARE_ACCOUNT_ID": "577e46f05185e49e01fad937549ea2a1"
+    {
+      "src": "/(.*)",
+      "dest": "/public/index.php"
     }
+  ],
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "APP_URL": "https://menghor.ninja",
+    "APP_KEY": "base64:kZhNgF/+Eh4LitTjQqvU7s1q861K3gpbnDvcFfTsBtM=",
+    "APP_CONFIG_CACHE": "/tmp/config.php",
+    "APP_EVENTS_CACHE": "/tmp/events.php",
+    "APP_PACKAGES_CACHE": "/tmp/packages.php",
+    "APP_ROUTES_CACHE": "/tmp/routes.php",
+    "APP_SERVICES_CACHE": "/tmp/services.php",
+    "VIEW_COMPILED_PATH": "/tmp",
+    "CACHE_DRIVER": "array",
+    "LOG_CHANNEL": "stderr",
+    "SESSION_DRIVER": "cookie",
+    "DB_CONNECTION": "d1",
+    "CLOUDFLARE_D1_DATABASE_ID": "92dbf4a1-82b7-46c2-93ae-6f8058793965",
+    "CLOUDFLARE_TOKEN": "_3R-3DRVzsSnhBskA5hkjZ6Zca5iclkw7QTonamu",
+    "CLOUDFLARE_ACCOUNT_ID": "577e46f05185e49e01fad937549ea2a1"
+  }
 }
