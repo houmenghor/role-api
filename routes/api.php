@@ -6,12 +6,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 
-Route::group(['prefix' => ''], function () {
-  Route::post('/role',[RoleController::class,'store']);
-  Route::get('/role',[RoleController::class,'index']);
-  Route::delete('/role/{id}',[RoleController::class,'destroy']);
-  Route::put('/role/{id}',[RoleController::class,'update']);
-});
+Route::post('/role',[RoleController::class,'store']);
+Route::get('/role',[RoleController::class,'index']);
+Route::delete('/role/{id}',[RoleController::class,'destroy']);
+Route::put('/role/{id}',[RoleController::class,'update']);
+
 Route::get('/user',[UserController::class,'index']);
 
 Route::prefix('/auth')->group(function () {
